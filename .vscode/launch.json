@@ -7,7 +7,7 @@
             "request": "launch",
             "program": "${workspaceRoot}/app.js",
             "stopOnEntry": false,
-            "args": [],
+            "args": [ "import", "-f 1202635332-2015.csv"],
             "cwd": "${workspaceRoot}",
             "preLaunchTask": null,
             "runtimeExecutable": null,

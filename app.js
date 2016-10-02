@@ -35,13 +35,29 @@ converter.on("end_parsed", function (jsonArray) {
             db.get('transactions')
                 .push(value)
                 .value();
-        //    console.log('added');
-        //} else {
-        //    console.log('found');
+            console.log('added');
+        } else {
+            console.log('found');
         }
     });
     console.log('entries: ' + db.get('transactions').size().value())
 });
 
-fs.createReadStream('./' + argv.f)
-    .pipe(converter);
+var importCSV = function () {
+    fs.createReadStream('./' + argv.f.trim())
+        .pipe(converter);
+};
+
+var countData = function () {
+    console.log(db.get('transactions').size().value());
+};
+
+if (argv && argv._ && argv._[0]) {
+    if (argv._[0] === 'import') {
+        importCSV();
+    } else if (argv._[0] === 'count') {
+        countData();
+    } else {
+        console.log('there is no function');
+    }
+}
