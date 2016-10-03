@@ -1,3 +1,11 @@
 node_modules
 *.csv
 db.json
+typings/**
+**/*npm-debug.log.*
+*.js
+*.js.map
+
+!systemjs.config.js
+!typings/typings.d.ts
+!app.js
